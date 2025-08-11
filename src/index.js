@@ -36,41 +36,46 @@ if (xpHeroi <= 1000) {  // Utilizei o operador lógico "<=" para definir que cas
 }   
 
 let resultadoDivisao = xpHeroi / nivelHeroi;  // Nesse bloco, caso a divisão do XP do herói pelo seu nível seja maior que 1000, o herói poderá usar uma armadura especial
-let PodeUsarArmaduraEspecial = false;        
+let podeUsarArmaduraEspecial = false;        
 
 if (resultadoDivisao > 1000) {    
-    PodeUsarArmaduraEspecial = true;
+    podeUsarArmaduraEspecial = true;
 }
 
-if (PodeUsarArmaduraEspecial) {
+if (podeUsarArmaduraEspecial) {
     console.log("O herói " + nomeHeroi + " pode usar a armadura especial.");
 } else {
     console.log("O herói " + nomeHeroi + " NÃO pode usar a armadura especial.");
 }
 
+let mundoAcessivel = ""; // Variável para armazenar o mundo acessível ao herói
+// Utilizando a estrutura if-else para determinar qual mundo o herói pode acessar de acordo com o XP
 
 if (xpHeroi <= 3000) { // Verifica de acordo com a quantidade de XP do herói, qual mundo ele pode acessar
+    mundoAcessivel = "Gaia";
     console.log("O herói " + nomeHeroi + " pode acessar o mundo de Gaia, que é o mundo da terra.");
 
-} else if (xpHeroi >= 3001 && xpHeroi <= 4000) {
+} else if (xpHeroi >= 4001 && xpHeroi <= 5000) {
+    mundoAcessivel = "Mundo inferior e Primordial";
     console.log("O herói " + nomeHeroi + " pode acessar o mundo de Mundo inferior e Primordial, que é o mundo dos mortos e das forças primordiais.");
 
-} else if (xpHeroi >= 4001 && xpHeroi <= 5000) {
+} else if (xpHeroi >= 5001 && xpHeroi <= 6000) {
+    mundoAcessivel = "Reino de Hades, O Submundo";
     console.log("O herói " + nomeHeroi + " pode acessar o mundo de Reino de Hades, O Submundo, que é o mundo dos mortos.");
 
 } else if (xpHeroi >= 7001 && xpHeroi <= 8000) {
+    mundoAcessivel = "Reino de Poseidon";
     console.log("O herói " + nomeHeroi + " pode acessar o mundo de Reino de Poseidon, que é o mundo dos mares e oceanos.");
 
 } else if (xpHeroi >= 8001) {
+    mundoAcessivel = "Olimpo";
     console.log("O herói " + nomeHeroi + " pode acessar o mundo de Olimpo, que é o mundo dos deuses.");
-
-} else if (xpHeroi <= 0) {
-    console.log("O herói " + nomeHeroi + " não tem acesso a nenhum mundo.");
 }   
 
+
+
 // Utilizando a estrutura switch para determinar qual armamento o herói pode acessar de acordo com o cenário
-let mundoAcessivel = "Reino de Posseidon"; // Variável para armazenar o mundo acessível ao herói
-let armasAcessiveis = "Reino de Posseidon"; // Variável para armazenar o armamento que o herói pode acessar de acordo com o cenário
+let armasAcessiveis = mundoAcessivel; // Variável para armazenar o armamento que o herói pode acessar de acordo com o mundo que ele tem acesso
 switch (armasAcessiveis){
     case "Gaia":
         console.log("O herói " + nomeHeroi + " pode utilizar apenas a espada de Gaia.");
@@ -84,7 +89,7 @@ switch (armasAcessiveis){
         console.log("O herói " + nomeHeroi + " pode utilizar apenas as lâminas de Hades.");
         break;  
 
-    case "Reino de Posseidon":
+    case "Reino de Poseidon":
         console.log("O herói " + nomeHeroi + " pode utilizar apenas o Tridente de Poseidon.");
         break;
 
